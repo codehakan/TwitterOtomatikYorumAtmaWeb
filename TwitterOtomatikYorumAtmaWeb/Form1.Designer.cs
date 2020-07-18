@@ -30,14 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.txt_pass = new System.Windows.Forms.TextBox();
             this.txt_mail = new System.Windows.Forms.TextBox();
-            this.btn_baslat = new System.Windows.Forms.Button();
+            this.frmHome = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.list_hashtag = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.log_box = new System.Windows.Forms.RichTextBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.progress_wbrowser = new System.Windows.Forms.ProgressBar();
             this.timer_trend = new System.Windows.Forms.Timer(this.components);
@@ -46,6 +48,7 @@
             this.timer_tweeti_yaz = new System.Windows.Forms.Timer(this.components);
             this.timer_tweeti_gonder = new System.Windows.Forms.Timer(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_durdur = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_islem_suresi = new System.Windows.Forms.NumericUpDown();
             this.txt_tweet_sayisi = new System.Windows.Forms.NumericUpDown();
@@ -53,9 +56,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timer_tweet_dongusu = new System.Windows.Forms.Timer(this.components);
-            this.btn_durdur = new System.Windows.Forms.Button();
-            this.log_box = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -78,6 +78,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mail Adresi ve Şifre";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button1.Location = new System.Drawing.Point(3, 102);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(213, 37);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Çıkış Yap";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // txt_pass
             // 
             this.txt_pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -97,16 +107,16 @@
             this.txt_mail.TabIndex = 0;
             this.txt_mail.Text = "insmuhbey@gmail.com";
             // 
-            // btn_baslat
+            // frmHome
             // 
-            this.btn_baslat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_baslat.Location = new System.Drawing.Point(313, 12);
-            this.btn_baslat.Name = "btn_baslat";
-            this.btn_baslat.Size = new System.Drawing.Size(117, 40);
-            this.btn_baslat.TabIndex = 4;
-            this.btn_baslat.Text = "Başlat";
-            this.btn_baslat.UseVisualStyleBackColor = true;
-            this.btn_baslat.Click += new System.EventHandler(this.btn_baslat_Click);
+            this.frmHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.frmHome.Location = new System.Drawing.Point(313, 12);
+            this.frmHome.Name = "frmHome";
+            this.frmHome.Size = new System.Drawing.Size(117, 40);
+            this.frmHome.TabIndex = 4;
+            this.frmHome.Text = "Başlat";
+            this.frmHome.UseVisualStyleBackColor = true;
+            this.frmHome.Click += new System.EventHandler(this.btn_baslat_Click);
             // 
             // groupBox3
             // 
@@ -161,6 +171,21 @@
             this.groupBox5.TabIndex = 8;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Tarayıcı";
+            // 
+            // log_box
+            // 
+            this.log_box.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.log_box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.log_box.Dock = System.Windows.Forms.DockStyle.Right;
+            this.log_box.Font = new System.Drawing.Font("Lucida Console", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.log_box.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.log_box.Location = new System.Drawing.Point(597, 18);
+            this.log_box.Name = "log_box";
+            this.log_box.ReadOnly = true;
+            this.log_box.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.log_box.Size = new System.Drawing.Size(540, 571);
+            this.log_box.TabIndex = 20;
+            this.log_box.Text = "";
             // 
             // webBrowser1
             // 
@@ -220,7 +245,7 @@
             this.groupBox2.Controls.Add(this.txt_hashtag_sayisi);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.btn_baslat);
+            this.groupBox2.Controls.Add(this.frmHome);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox2.Location = new System.Drawing.Point(722, 12);
             this.groupBox2.Name = "groupBox2";
@@ -228,6 +253,18 @@
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "AYARLAR";
+            // 
+            // btn_durdur
+            // 
+            this.btn_durdur.Enabled = false;
+            this.btn_durdur.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btn_durdur.Location = new System.Drawing.Point(312, 100);
+            this.btn_durdur.Name = "btn_durdur";
+            this.btn_durdur.Size = new System.Drawing.Size(117, 40);
+            this.btn_durdur.TabIndex = 19;
+            this.btn_durdur.Text = "Durdur";
+            this.btn_durdur.UseVisualStyleBackColor = true;
+            this.btn_durdur.Click += new System.EventHandler(this.btn_durdur_Click);
             // 
             // label4
             // 
@@ -332,43 +369,6 @@
             this.timer_tweet_dongusu.Interval = 2001;
             this.timer_tweet_dongusu.Tick += new System.EventHandler(this.timer_tweet_dongusu_Tick);
             // 
-            // btn_durdur
-            // 
-            this.btn_durdur.Enabled = false;
-            this.btn_durdur.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_durdur.Location = new System.Drawing.Point(312, 100);
-            this.btn_durdur.Name = "btn_durdur";
-            this.btn_durdur.Size = new System.Drawing.Size(117, 40);
-            this.btn_durdur.TabIndex = 19;
-            this.btn_durdur.Text = "Durdur";
-            this.btn_durdur.UseVisualStyleBackColor = true;
-            this.btn_durdur.Click += new System.EventHandler(this.btn_durdur_Click);
-            // 
-            // log_box
-            // 
-            this.log_box.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.log_box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.log_box.Dock = System.Windows.Forms.DockStyle.Right;
-            this.log_box.Font = new System.Drawing.Font("Lucida Console", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.log_box.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.log_box.Location = new System.Drawing.Point(597, 18);
-            this.log_box.Name = "log_box";
-            this.log_box.ReadOnly = true;
-            this.log_box.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.log_box.Size = new System.Drawing.Size(540, 571);
-            this.log_box.TabIndex = 20;
-            this.log_box.Text = "";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(3, 102);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(213, 37);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Çıkış Yap";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -401,7 +401,7 @@
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btn_baslat;
+        private System.Windows.Forms.Button frmHome;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.RichTextBox richTextBox1;

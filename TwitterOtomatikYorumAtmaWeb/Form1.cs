@@ -30,7 +30,7 @@ namespace TwitterOtomatikYorumAtmaWeb
             log_box.SelectionColor = _color;
             log_box.AppendText("[" + DateTime.Now.ToString("HH:mm:ss") + "] " + "[OK] - Uygulama çalıştırılıyor..." + Environment.NewLine);
             log_box.ScrollToCaret();
-            btn_baslat.Enabled = false;
+            frmHome.Enabled = false;
             txt_hashtag_sayisi.Enabled = false;
             txt_tweet_sayisi.Enabled = false;
             txt_islem_suresi.Enabled = false;
@@ -206,7 +206,7 @@ namespace TwitterOtomatikYorumAtmaWeb
                 log_box.SelectionColor = _color;
                 log_box.AppendText("[" + DateTime.Now.ToString("HH:mm:ss") + "] " + "[FINISH] - İşlemler tamamlandı ve program durdu." + Environment.NewLine);
                 log_box.ScrollToCaret();
-                btn_baslat.Enabled = true;
+                frmHome.Enabled = true;
                 sayac = 0; temp = 0;
                 txt_hashtag_sayisi.Enabled = true;
                 txt_tweet_sayisi.Enabled = true;
@@ -301,7 +301,7 @@ namespace TwitterOtomatikYorumAtmaWeb
             timer_tweeti_yaz.Stop();
             timer_tweeti_gonder.Stop();
             timer_tweet_dongusu.Stop();
-            btn_baslat.Enabled = true;
+            frmHome.Enabled = true;
             btn_durdur.Enabled = false;
             txt_hashtag_sayisi.Enabled = true;
             txt_islem_suresi.Enabled = true;
