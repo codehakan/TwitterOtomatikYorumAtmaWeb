@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Drawing;
 
-namespace Twitter_Otomatik_Yorum
+namespace TwitterOtomatikYorumAtmaWeb
 {
     public partial class Form1 : Form
     {

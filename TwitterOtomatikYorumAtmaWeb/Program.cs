@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Twitter_Otomatik_Yorum
+namespace TwitterOtomatikYorumAtmaWeb
 {
     static class Program
     {

@@ -1,4 +1,4 @@
-﻿namespace Twitter_Otomatik_Yorum
+﻿namespace TwitterOtomatikYorumAtmaWeb
 {
     partial class Form1
     {
