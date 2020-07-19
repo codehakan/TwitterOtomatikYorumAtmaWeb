@@ -4,17 +4,25 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
 using System.Drawing;
+using System.Threading.Tasks;
 
 namespace TwitterOtomatikYorumAtmaWeb
 {
-    public partial class Form1 : Form
+    public partial class frmHomePage : Form
     {
         Color _color = Color.SlateBlue;
-        public Form1()
+        private static int hashtag_sayisi, tweet_sayisi;
+        public frmHomePage()
         {
             InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            hashtag_sayisi = Convert.ToInt32(txt_hashtag_sayisi.Value);
+            tweet_sayisi = Convert.ToInt32(txt_tweet_sayisi.Value);
+
+        }
 
         private void btn_baslat_Click(object sender, EventArgs e)
         {
@@ -36,15 +44,16 @@ namespace TwitterOtomatikYorumAtmaWeb
             txt_islem_suresi.Enabled = false;
             btn_durdur.Enabled = true;
 
-            foreach (HtmlElement element in webBrowser1.Document.GetElementsByTagName("a"))
+            /*foreach (HtmlElement element in webBrowser1.Document.GetElementsByTagName("a"))
             {
                 if (element.GetAttribute("href") == "/trends")
                 {
                     element.InvokeMember("click");
                     Thread.Sleep(100);
+                    //await Task.Delay(100);
                     break;
                 }
-            }
+            }*/
 
             foreach (HtmlElement element in webBrowser1.Document.All)
             {
@@ -60,6 +69,7 @@ namespace TwitterOtomatikYorumAtmaWeb
                 {
                     element.InvokeMember("click");
                     Thread.Sleep(1000);
+                    //await Task.Delay(1000);
                     webBrowser1.Navigate("https://mobile.twitter.com/trends");
                     _color = Color.DarkGreen;
                     log_box.SelectionColor = _color;
@@ -67,7 +77,8 @@ namespace TwitterOtomatikYorumAtmaWeb
                     log_box.ScrollToCaret();
                 }
             }
-            timer_trend.Start();
+            timer_aramayap.Start();
+            //timer_trend.Start();
         }
 
         private void trendListesiniCek()
@@ -78,6 +89,7 @@ namespace TwitterOtomatikYorumAtmaWeb
                 if (element.GetAttribute("classname") == "topic")
                 {
                     Thread.Sleep(1);
+                    //await Task.Delay(1);
                     ListViewItem lvi = new ListViewItem(element.OuterText);
                     list_hashtag.Items.Add(lvi.Text);
                 }
@@ -86,6 +98,22 @@ namespace TwitterOtomatikYorumAtmaWeb
             log_box.SelectionColor = _color;
             log_box.AppendText("[" + DateTime.Now.ToString("HH:mm:ss") + "] " + "[OK] - Hashtag'ler hafızaya kayıt edildi." + Environment.NewLine);
             log_box.ScrollToCaret();
+        }
+
+        private void aramaKutucugunaYaz(int aranacakHashtag)
+        {
+            foreach (HtmlElement element in webBrowser1.Document.All)
+            {
+                if (element.Name == "q")
+                {
+                    element.InnerText = list_hashtag.Items[aranacakHashtag].ToString();
+                }
+                if (element.GetAttribute("type") == "image")
+                {
+                    element.InvokeMember("click");
+                }
+            }
+            timer_yanitla.Start();
         }
 
 
@@ -97,6 +125,7 @@ namespace TwitterOtomatikYorumAtmaWeb
                 {
                     element.InvokeMember("click");
                     Thread.Sleep(1000);
+                    //await Task.Delay(1000);
                     _color = Color.Teal;
                     log_box.SelectionColor = _color;
                     log_box.AppendText("[" + DateTime.Now.ToString("HH:mm:ss") + "] " + "[OK] - " + list_hashtag.Items[sira].ToString() + " hashtag açıldı." + Environment.NewLine);
@@ -123,6 +152,7 @@ namespace TwitterOtomatikYorumAtmaWeb
                         {
                             element.InvokeMember("click");
                             Thread.Sleep(500);
+                            //await Task.Delay(500);
                             _color = Color.SlateBlue;
                             log_box.SelectionColor = _color;
                             log_box.AppendText("[" + DateTime.Now.ToString("HH:mm:ss") + "] " + "[OK] - Tweet'e giriş yapıldı." + Environment.NewLine);
@@ -145,6 +175,7 @@ namespace TwitterOtomatikYorumAtmaWeb
                 //log_box.AppendText("[BITTI] - İşlemler Tamamlandı!" + Environment.NewLine);
             }
         }
+
         Random rnd = new Random();
         private void tweetiYaz()
         {
@@ -153,12 +184,13 @@ namespace TwitterOtomatikYorumAtmaWeb
                 if (element.GetAttribute("classname") == "tweetbox")
                 {
                     element.InvokeMember("click");
-                    element.InnerText = richTextBox1.Text + "- " + rnd.Next(1, 81);
+                    element.InnerText = txtTweetIcerigi.Text + "- " + rnd.Next(1, 81);
                     _color = Color.SlateBlue;
                     log_box.SelectionColor = _color;
                     log_box.AppendText("[" + DateTime.Now.ToString("HH:mm:ss") + "] " + "[OK] - Mesaj metniniz kutucuğa yazıldı." + Environment.NewLine);
                     log_box.ScrollToCaret();
                     Thread.Sleep(500);
+                    //await Task.Delay(500);
                     break;
                 }
             }
@@ -177,6 +209,7 @@ namespace TwitterOtomatikYorumAtmaWeb
                     log_box.ScrollToCaret();
                     txt_tweet_sayisi.Value -= 1;
                     Thread.Sleep(500);
+                    //await Task.Delay(500);
                     break;
                 }
             }
@@ -187,6 +220,7 @@ namespace TwitterOtomatikYorumAtmaWeb
             if (txt_tweet_sayisi.Value > 0)
             {
                 Thread.Sleep(500);
+                //await Task.Delay(500);
                 webBrowser1.Navigate("https://mobile.twitter.com/trends");
                 _color = Color.SlateBlue;
                 log_box.SelectionColor = _color;
@@ -215,11 +249,9 @@ namespace TwitterOtomatikYorumAtmaWeb
         }
 
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
 
-        
+
+
 
         private void webBrowser1_ProgressChanged(object sender, WebBrowserProgressChangedEventArgs e)
         {
@@ -281,9 +313,11 @@ namespace TwitterOtomatikYorumAtmaWeb
             {
                 Console.WriteLine("Çalışıyor mu bu 1");
                 Thread.Sleep(500);
-                trendlereDon();
+                //await Task.Delay(500);
+                //trendlereDon();
+                aramaKutucugunaYaz();
                 timer_tweet_dongusu.Stop();
-                timer_hashtagegir.Start();
+                //timer_hashtagegir.Start();
             }
             else
             {
@@ -313,13 +347,43 @@ namespace TwitterOtomatikYorumAtmaWeb
             trendlereDon();
         }
 
+        private void timer_aramayap_Tick(object sender, EventArgs e)
+        {
+            Console.WriteLine("Çalışıyor mu bu 0");
+            aramaKutucugunaYaz();
+            timer_aramayap.Stop();
+            timer_yanitla.Start();
+        }
+
+        public static ListBox hashtagler;
+        private void btnHashtag_Click(object sender, EventArgs e)
+        {
+            hashtagler = list_hashtag;
+            frm_hashtagEkle frm = new frm_hashtagEkle();
+            frm.ShowDialog();
+            list_hashtag.Items.Clear();
+            if (frm_hashtagEkle.hashtagler.Items.Count > 0)
+            {
+                for (int i = 0; i < frm_hashtagEkle.hashtagler.Items.Count; i++)
+                {
+                    ListViewItem lvi = new ListViewItem(frm_hashtagEkle.hashtagler.Items[i].ToString());
+                    list_hashtag.Items.Add(lvi.Text);
+                }
+            }
+        }
+
+        private void txtTweetIcerigi_TextChanged(object sender, EventArgs e)
+        {
+            toolStripLabel1.Text = "Kalan Karakter Sayısı: " + (txtTweetIcerigi.MaxLength - txtTweetIcerigi.TextLength);
+        }
+
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            if (webBrowser1.Url.AbsoluteUri == "https://mobile.twitter.com/")
+            /*if (webBrowser1.Url.AbsoluteUri == "https://mobile.twitter.com/")
             {
                 Thread.Sleep(1000);
                 webBrowser1.Navigate("https://mobile.twitter.com/trends");
-            }
+            }*/
         }
 
     }

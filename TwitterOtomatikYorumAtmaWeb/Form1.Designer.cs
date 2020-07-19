@@ -1,6 +1,6 @@
 ﻿namespace TwitterOtomatikYorumAtmaWeb
 {
-    partial class Form1
+    partial class frmHomePage
     {
         /// <summary>
         ///Gerekli tasarımcı değişkeni.
@@ -35,13 +35,13 @@
             this.txt_mail = new System.Windows.Forms.TextBox();
             this.frmHome = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnHashtag = new System.Windows.Forms.Button();
             this.list_hashtag = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txtTweetIcerigi = new System.Windows.Forms.RichTextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.log_box = new System.Windows.Forms.RichTextBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.progress_wbrowser = new System.Windows.Forms.ProgressBar();
             this.timer_trend = new System.Windows.Forms.Timer(this.components);
             this.timer_hashtagegir = new System.Windows.Forms.Timer(this.components);
             this.timer_yanitla = new System.Windows.Forms.Timer(this.components);
@@ -56,6 +56,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timer_tweet_dongusu = new System.Windows.Forms.Timer(this.components);
+            this.timer_aramayap = new System.Windows.Forms.Timer(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -64,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_islem_suresi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_tweet_sayisi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_hashtag_sayisi)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -71,7 +75,7 @@
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.txt_pass);
             this.groupBox1.Controls.Add(this.txt_mail);
-            this.groupBox1.Location = new System.Drawing.Point(491, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(225, 143);
             this.groupBox1.TabIndex = 2;
@@ -80,7 +84,7 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button1.Location = new System.Drawing.Point(3, 102);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(213, 37);
@@ -110,7 +114,7 @@
             // frmHome
             // 
             this.frmHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.frmHome.Location = new System.Drawing.Point(313, 12);
+            this.frmHome.Location = new System.Drawing.Point(249, 14);
             this.frmHome.Name = "frmHome";
             this.frmHome.Size = new System.Drawing.Size(117, 40);
             this.frmHome.TabIndex = 4;
@@ -120,43 +124,58 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnHashtag);
             this.groupBox3.Controls.Add(this.list_hashtag);
-            this.groupBox3.Location = new System.Drawing.Point(327, 12);
+            this.groupBox3.Location = new System.Drawing.Point(243, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(158, 143);
+            this.groupBox3.Size = new System.Drawing.Size(250, 143);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Hashtag";
             // 
+            // btnHashtag
+            // 
+            this.btnHashtag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnHashtag.Location = new System.Drawing.Point(3, 102);
+            this.btnHashtag.Name = "btnHashtag";
+            this.btnHashtag.Size = new System.Drawing.Size(244, 38);
+            this.btnHashtag.TabIndex = 21;
+            this.btnHashtag.Text = "Hashtagleri Düzenle";
+            this.btnHashtag.UseVisualStyleBackColor = true;
+            this.btnHashtag.Click += new System.EventHandler(this.btnHashtag_Click);
+            // 
             // list_hashtag
             // 
-            this.list_hashtag.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.list_hashtag.Dock = System.Windows.Forms.DockStyle.Top;
             this.list_hashtag.FormattingEnabled = true;
             this.list_hashtag.ItemHeight = 16;
             this.list_hashtag.Location = new System.Drawing.Point(3, 18);
             this.list_hashtag.Name = "list_hashtag";
-            this.list_hashtag.Size = new System.Drawing.Size(152, 122);
+            this.list_hashtag.Size = new System.Drawing.Size(244, 84);
             this.list_hashtag.TabIndex = 3;
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.richTextBox1);
-            this.groupBox4.Location = new System.Drawing.Point(12, 12);
+            this.groupBox4.Controls.Add(this.toolStrip1);
+            this.groupBox4.Controls.Add(this.txtTweetIcerigi);
+            this.groupBox4.Location = new System.Drawing.Point(496, 12);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(309, 143);
+            this.groupBox4.Size = new System.Drawing.Size(376, 143);
             this.groupBox4.TabIndex = 7;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Mesajınız";
             // 
-            // richTextBox1
+            // txtTweetIcerigi
             // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.richTextBox1.Location = new System.Drawing.Point(3, 18);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(303, 122);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.txtTweetIcerigi.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtTweetIcerigi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtTweetIcerigi.Location = new System.Drawing.Point(3, 18);
+            this.txtTweetIcerigi.MaxLength = 280;
+            this.txtTweetIcerigi.Name = "txtTweetIcerigi";
+            this.txtTweetIcerigi.Size = new System.Drawing.Size(370, 94);
+            this.txtTweetIcerigi.TabIndex = 0;
+            this.txtTweetIcerigi.Text = "";
+            this.txtTweetIcerigi.TextChanged += new System.EventHandler(this.txtTweetIcerigi_TextChanged);
             // 
             // groupBox5
             // 
@@ -165,9 +184,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.log_box);
             this.groupBox5.Controls.Add(this.webBrowser1);
-            this.groupBox5.Location = new System.Drawing.Point(14, 191);
+            this.groupBox5.Location = new System.Drawing.Point(14, 161);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1140, 592);
+            this.groupBox5.Size = new System.Drawing.Size(1232, 622);
             this.groupBox5.TabIndex = 8;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Tarayıcı";
@@ -179,11 +198,11 @@
             this.log_box.Dock = System.Windows.Forms.DockStyle.Right;
             this.log_box.Font = new System.Drawing.Font("Lucida Console", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.log_box.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.log_box.Location = new System.Drawing.Point(597, 18);
+            this.log_box.Location = new System.Drawing.Point(689, 18);
             this.log_box.Name = "log_box";
             this.log_box.ReadOnly = true;
             this.log_box.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.log_box.Size = new System.Drawing.Size(540, 571);
+            this.log_box.Size = new System.Drawing.Size(540, 601);
             this.log_box.TabIndex = 20;
             this.log_box.Text = "";
             // 
@@ -194,20 +213,11 @@
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.Size = new System.Drawing.Size(588, 571);
+            this.webBrowser1.Size = new System.Drawing.Size(680, 601);
             this.webBrowser1.TabIndex = 1;
             this.webBrowser1.Url = new System.Uri("http://m.twitter.com/login", System.UriKind.Absolute);
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             this.webBrowser1.ProgressChanged += new System.Windows.Forms.WebBrowserProgressChangedEventHandler(this.webBrowser1_ProgressChanged);
-            // 
-            // progress_wbrowser
-            // 
-            this.progress_wbrowser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.progress_wbrowser.Location = new System.Drawing.Point(12, 162);
-            this.progress_wbrowser.Name = "progress_wbrowser";
-            this.progress_wbrowser.Size = new System.Drawing.Size(1146, 23);
-            this.progress_wbrowser.TabIndex = 9;
             // 
             // timer_trend
             // 
@@ -247,9 +257,9 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.frmHome);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox2.Location = new System.Drawing.Point(722, 12);
+            this.groupBox2.Location = new System.Drawing.Point(878, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(436, 143);
+            this.groupBox2.Size = new System.Drawing.Size(372, 143);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "AYARLAR";
@@ -258,7 +268,7 @@
             // 
             this.btn_durdur.Enabled = false;
             this.btn_durdur.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_durdur.Location = new System.Drawing.Point(312, 100);
+            this.btn_durdur.Location = new System.Drawing.Point(249, 100);
             this.btn_durdur.Name = "btn_durdur";
             this.btn_durdur.Size = new System.Drawing.Size(117, 40);
             this.btn_durdur.TabIndex = 19;
@@ -288,7 +298,7 @@
             0,
             0});
             this.txt_islem_suresi.Minimum = new decimal(new int[] {
-            3,
+            1,
             0,
             0,
             0});
@@ -297,7 +307,7 @@
             this.txt_islem_suresi.TabIndex = 17;
             this.txt_islem_suresi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_islem_suresi.Value = new decimal(new int[] {
-            3,
+            1,
             0,
             0,
             0});
@@ -308,7 +318,7 @@
             this.txt_tweet_sayisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txt_tweet_sayisi.Location = new System.Drawing.Point(9, 58);
             this.txt_tweet_sayisi.Maximum = new decimal(new int[] {
-            10,
+            20,
             0,
             0,
             0});
@@ -329,6 +339,11 @@
             this.txt_hashtag_sayisi.Location = new System.Drawing.Point(9, 18);
             this.txt_hashtag_sayisi.Maximum = new decimal(new int[] {
             9,
+            0,
+            0,
+            0});
+            this.txt_hashtag_sayisi.Minimum = new decimal(new int[] {
+            1,
             0,
             0,
             0});
@@ -369,19 +384,44 @@
             this.timer_tweet_dongusu.Interval = 2001;
             this.timer_tweet_dongusu.Tick += new System.EventHandler(this.timer_tweet_dongusu_Tick);
             // 
-            // Form1
+            // timer_aramayap
+            // 
+            this.timer_aramayap.Interval = 2001;
+            this.timer_aramayap.Tick += new System.EventHandler(this.timer_aramayap_Tick);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 115);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(370, 25);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(177, 22);
+            this.toolStripLabel1.Text = "Kalan Karakter Sayısı: 280";
+            // 
+            // frmHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 795);
+            this.ClientSize = new System.Drawing.Size(1262, 795);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.progress_wbrowser);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "frmHomePage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Twitter Otomatik Yorum Yapıcı";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -389,12 +429,15 @@
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_islem_suresi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_tweet_sayisi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_hashtag_sayisi)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -404,12 +447,11 @@
         private System.Windows.Forms.Button frmHome;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox txtTweetIcerigi;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox txt_mail;
         private System.Windows.Forms.TextBox txt_pass;
         private System.Windows.Forms.ListBox list_hashtag;
-        private System.Windows.Forms.ProgressBar progress_wbrowser;
         private System.Windows.Forms.Timer timer_trend;
         private System.Windows.Forms.Timer timer_hashtagegir;
         private System.Windows.Forms.Timer timer_yanitla;
@@ -427,6 +469,10 @@
         private System.Windows.Forms.Button btn_durdur;
         private System.Windows.Forms.RichTextBox log_box;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnHashtag;
+        private System.Windows.Forms.Timer timer_aramayap;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
     }
 }
 
