@@ -48,11 +48,11 @@ namespace TwitterOtomatikYorumAtmaWeb
 
         private void frm_hashtagEkle_Load(object sender, EventArgs e)
         {
-            if (frmHomePage.hashtagler.Items.Count > 0)
+            if (frmHome.hashtagler.Items.Count > 0)
             {
-                for (int i = 0; i < frmHomePage.hashtagler.Items.Count; i++)
+                for (int i = 0; i < frmHome.hashtagler.Items.Count; i++)
                 {
-                    cmbxHashtagList.Items.Add(frmHomePage.hashtagler.Items[i].ToString());
+                    cmbxHashtagList.Items.Add(frmHome.hashtagler.Items[i].ToString());
                 }
                 cmbxHashtagList.SelectedIndex = 0;
             }

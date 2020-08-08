@@ -1,6 +1,6 @@
 ﻿namespace TwitterOtomatikYorumAtmaWeb
 {
-    partial class frm_hashtagEkle
+    partial class frm_HazirMesajEkle
     {
         /// <summary>
         /// Required designer variable.
@@ -32,8 +32,8 @@
             this.btnKapat = new System.Windows.Forms.Button();
             this.btnSil = new System.Windows.Forms.Button();
             this.btnEkle = new System.Windows.Forms.Button();
-            this.txtHashtag = new System.Windows.Forms.TextBox();
-            this.cmbxHashtagList = new System.Windows.Forms.ComboBox();
+            this.txtMesaj = new System.Windows.Forms.TextBox();
+            this.cmbxMesajList = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,14 +42,14 @@
             this.groupBox1.Controls.Add(this.btnKapat);
             this.groupBox1.Controls.Add(this.btnSil);
             this.groupBox1.Controls.Add(this.btnEkle);
-            this.groupBox1.Controls.Add(this.txtHashtag);
-            this.groupBox1.Controls.Add(this.cmbxHashtagList);
+            this.groupBox1.Controls.Add(this.txtMesaj);
+            this.groupBox1.Controls.Add(this.cmbxMesajList);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(376, 152);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.Size = new System.Drawing.Size(376, 194);
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Aşağıdaki kutucuğa hashtag girişi yapınız.";
+            this.groupBox1.Text = "Aşağıdaki kutucuğa metin girişi yapınız.";
             // 
             // btnKapat
             // 
@@ -57,7 +57,7 @@
             this.btnKapat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnKapat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKapat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnKapat.Location = new System.Drawing.Point(279, 107);
+            this.btnKapat.Location = new System.Drawing.Point(279, 149);
             this.btnKapat.Name = "btnKapat";
             this.btnKapat.Size = new System.Drawing.Size(91, 39);
             this.btnKapat.TabIndex = 4;
@@ -71,7 +71,7 @@
             this.btnSil.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSil.Location = new System.Drawing.Point(111, 107);
+            this.btnSil.Location = new System.Drawing.Point(111, 149);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(162, 39);
             this.btnSil.TabIndex = 3;
@@ -82,10 +82,9 @@
             // btnEkle
             // 
             this.btnEkle.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnEkle.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnEkle.Location = new System.Drawing.Point(6, 107);
+            this.btnEkle.Location = new System.Drawing.Point(6, 149);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(99, 39);
             this.btnEkle.TabIndex = 2;
@@ -93,42 +92,40 @@
             this.btnEkle.UseVisualStyleBackColor = false;
             this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
-            // txtHashtag
+            // txtMesaj
             // 
-            this.txtHashtag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtHashtag.Location = new System.Drawing.Point(6, 71);
-            this.txtHashtag.Name = "txtHashtag";
-            this.txtHashtag.Size = new System.Drawing.Size(364, 30);
-            this.txtHashtag.TabIndex = 1;
+            this.txtMesaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtMesaj.Location = new System.Drawing.Point(6, 71);
+            this.txtMesaj.Multiline = true;
+            this.txtMesaj.Name = "txtMesaj";
+            this.txtMesaj.Size = new System.Drawing.Size(364, 72);
+            this.txtMesaj.TabIndex = 1;
             // 
-            // cmbxHashtagList
+            // cmbxMesajList
             // 
-            this.cmbxHashtagList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbxHashtagList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbxHashtagList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cmbxHashtagList.FormattingEnabled = true;
-            this.cmbxHashtagList.Location = new System.Drawing.Point(6, 32);
-            this.cmbxHashtagList.Name = "cmbxHashtagList";
-            this.cmbxHashtagList.Size = new System.Drawing.Size(364, 33);
-            this.cmbxHashtagList.Sorted = true;
-            this.cmbxHashtagList.TabIndex = 0;
+            this.cmbxMesajList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbxMesajList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbxMesajList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbxMesajList.FormattingEnabled = true;
+            this.cmbxMesajList.Location = new System.Drawing.Point(6, 32);
+            this.cmbxMesajList.Name = "cmbxMesajList";
+            this.cmbxMesajList.Size = new System.Drawing.Size(364, 33);
+            this.cmbxMesajList.Sorted = true;
+            this.cmbxMesajList.TabIndex = 0;
             // 
-            // frm_hashtagEkle
+            // frm_HazirMesajEkle
             // 
-            this.AcceptButton = this.btnEkle;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(400, 176);
+            this.ClientSize = new System.Drawing.Size(394, 218);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
-            this.Name = "frm_hashtagEkle";
-            this.ShowInTaskbar = false;
+            this.Name = "frm_HazirMesajEkle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Hashtag Düzenle";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_hashtagEkle_FormClosing);
-            this.Load += new System.EventHandler(this.frm_hashtagEkle_Load);
+            this.Text = "frm_HazirMesajEkle";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_HazirMesajEkle_FormClosing);
+            this.Load += new System.EventHandler(this.frm_HazirMesajEkle_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -138,10 +135,10 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cmbxHashtagList;
+        private System.Windows.Forms.Button btnKapat;
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.Button btnEkle;
-        private System.Windows.Forms.TextBox txtHashtag;
-        private System.Windows.Forms.Button btnKapat;
+        private System.Windows.Forms.TextBox txtMesaj;
+        private System.Windows.Forms.ComboBox cmbxMesajList;
     }
 }
